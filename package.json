@@ -1,0 +1,22 @@
+{
+  "name": "data-structures",
+  "version": "1.0.0",
+  "description": "算法与数据结构",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chencs-19950208/data-structures.git"
+  },
+  "keywords": [
+    "chencs"
+  ],
+  "author": "chencs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chencs-19950208/data-structures/issues"
+  },
+  "homepage": "https://github.com/chencs-19950208/data-structures#readme"
+}
