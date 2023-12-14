@@ -21,6 +21,10 @@ const queue = []; // 任务排队队列
 let activeCount = 0; // 当前执行到任务位置，用于记录
 
 const serviceLimit = (concurrency) => {
+  if(!((Number.isInteger(concurrency) || concurrency === Infinity) && concurrency > 0)) {
+    throw new TypeError('Expected `concurrency` to be a number from 1 and up')
+  };
+
   const generator = (fn, ...args) => {
     return new Promise((resolve) => {
       // 添加异步任务入队列
@@ -58,7 +62,21 @@ const serviceLimit = (concurrency) => {
     if(queue.length > 0) {
       queue.shift()();
     }
-  }
+  };
+
+  Object.defineProperties(generator, {
+    activeCount: {
+      get: () => activeCount
+    },
+    clearQueue: {
+      value: () => {
+        queue.length = 0;
+      }
+    },
+    pendingCount: {
+      get: () => queue.length
+    },
+  })
 
   return generator;
 }
