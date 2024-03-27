@@ -31,6 +31,7 @@ const quickSort = (data) => {
     console.log("第"+(++times)+'次循环'+data);
   };
 
+  // return [...quickSort(left), ...maxArr, ...quickSort(right)]
   return quickSort(left).concat(maxArr, quickSort(right));
 };
 
